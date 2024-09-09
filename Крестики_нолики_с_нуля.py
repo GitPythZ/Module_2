@@ -1,23 +1,4 @@
-# # def check_winners():
-# #     for i in fields
-# #     pass
-#
-#
-# check_winners()
-
-
 fields = [["*", "*", "*"], ["*", "*", "*"], ["*", "*", "*"]]
-print(fields[0][0:3])
-area = [["+", "-", "*"], ["=", "*", "/"], ["%", "//", "@"]]
-print(area)
-for i in area:
-    print(i)
-n = 0
-for i in area[n][:]:
-    for j in area[n + 1][:]:
-        for k in area[n + 1][:]:
-            print(i, j, k)
-    n += 1
 print("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
 print("XOXOXOXOX*****Добро пожаловать в Крестики_Нолики*****OXOXOXOXO")
 print("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
@@ -26,6 +7,41 @@ print("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
 def draw_fields():
     for i in fields:
         print(*i)
+
+def check_winners():
+    if fields[0][0:3] == ["X", "X", "X"]:
+        return "X"
+    if fields[1][0:3] == ["X", "X", "X"]:
+        return "X"
+    if fields[2][0:3] == ["X", "X", "X"]:
+        return "X"
+    if fields[0][0] == "X" and fields[1][0] == "X" and fields[2][0] == "X":
+        return "X"
+    if fields[0][1] == "X" and fields[1][1] == "X" and fields[2][1] == "X":
+        return "X"
+    if fields[0][2] == "X" and fields[1][2] == "X" and fields[2][2] == "X":
+        return "X"
+    if fields[0][0] == "X" and fields[1][1] == "X" and fields[2][2] == "X":
+        return "X"
+    if fields[0][2] == "X" and fields[1][1] == "X" and fields[2][0] == "X":
+        return "X"
+    if fields[0][0:3] == ["O", "O", "O"]:
+        return "O"
+    if fields[1][0:3] == ["O", "O", "O"]:
+        return "O"
+    if fields[2][0:3] == ["O", "O", "O"]:
+        return "O"
+    if fields[0][0] == "O" and fields[1][0] == "O" and fields[2][0] == "O":
+        return "O"
+    if fields[0][1] == "O" and fields[1][1] == "O" and fields[2][1] == "O":
+        return "O"
+    if fields[0][2] == "O" and fields[1][2] == "O" and fields[2][2] == "O":
+        return "O"
+    if fields[0][0] == "O" and fields[1][1] == "O" and fields[2][2] == "O":
+        return "O"
+    if fields[0][2] == "O" and fields[1][1] == "O" and fields[2][0] == "O":
+        return "O"
+    return "*"
 
 
 draw_fields()
@@ -46,3 +62,11 @@ for turn in range(1,10):
         draw_fields()
         continue
     draw_fields()
+    if check_winners() == "X":
+        print("Победа Крестиков")
+        break
+    if check_winners() == "X":
+        print("Победа Ноликов")
+        break
+    if check_winners() == "*" or turn == 9:
+        print("Ничья")

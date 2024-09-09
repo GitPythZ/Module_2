@@ -1,29 +1,23 @@
 import random
-numbers = list(range(3, 21))
-print(f"Дан список целых чисел: {numbers}")
-rand_inx = random.randint(0, len(numbers) + 1)
-rand_num = numbers[rand_inx]
-print(f"Сейчас появится случайное число из списка {numbers}: {rand_num}")
 
 
-def get_dividers(x):
-    dividers = set()
-    for i in range(1, int(x**.5) + 1):
-        if not x % i:
-            dividers.add(i)
-            dividers.add(x // i)
-    return dividers
+def password():
+    list_password = []
+    lock = 0
+    range_lock = range(3, 21)
+    number_lock = random.choice(range_lock)
+    lock += number_lock
+    range_password = range(1, 21)
+    for i in range_password:
+        range_password_2 = range(i + 1, 21)
+        for j in range_password_2:
+            if i != lock and j != lock and lock % (i + j) == 0:
+                list_password.append(i)
+                list_password.append(j)
+
+    print(f'{lock} - число из первой вставки')
+    print(*list_password, '- нужный пароль')
 
 
-def get_pairs(x):
-    pairs = set()
-    for i in get_dividers(x):
-        for j in range(1, i):
-            if j != i - j:
-                pairs.add(''.join(map(str, sorted((j, i - j)))))
-    return ''.join(sorted(pairs))
-
-
-n = rand_num
-print(f"Пароль для второй вставки:", get_pairs(n))
+password()
 

@@ -69,7 +69,7 @@ print(chetnyi_lst)
 squares2 = [x**2 for x in range(1,11) if x % 2 == 0]
 print(squares2)
 # Задача 5. Создание списка из чисел, которые делятся на 3 или на 5.
-squares3_5 = [x for x in range(1,100) if x % 3 ==0 or x % 5 == 0]
+squares3_5 = [x for x in range(1,100) if x % 3 == 0 or x % 5 == 0]
 print(squares3_5)
 squares3_5 = [x for x in range(1,100) if x % 3 ==0 and x % 5 == 0]
 print(squares3_5)
@@ -79,13 +79,4 @@ print(squares3_5)
 # Задача 7. Создание списка из квадратных корней чисел от 1 до 10.
 coren_ = [x**(0.5) for x in range(1,10)]
 print(coren_)
-    print(fib)
 # Задача от меня: Создай список из чисел фибонначи в диапозоне от 0 до 1000
-fib_ = []
-for i in range[0, 10]:
-    a, b = 0, 1
-    a, b = b, a +b
-    if
-        fib_.append(i)
-else:
-print(fib_)
